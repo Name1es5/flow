@@ -2,6 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 
+if (navigator.userAgent.includes('Electron')) {
+  document.body.classList.add('electron')
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />

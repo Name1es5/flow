@@ -1,8 +1,5 @@
 export const PROJECTS = [
-  { id: 'smartcredit',   name: 'SmartCredit',       color: '#2863c5' },
-  { id: '4k-report',     name: '4K Report',          color: '#7c3aed' },
-  { id: 'hogo',          name: 'Hogo',               color: '#059669' },
-  { id: 'lending-score', name: 'The Lending Score',  color: '#e85d04' },
+  { id: 'default', name: 'New Project', color: '#2863c5' },
 ]
 
 export const STATUSES = [
@@ -22,7 +19,7 @@ export function createTask(overrides = {}) {
   return {
     id: Date.now().toString(36) + Math.random().toString(36).slice(2),
     title: 'New Task',
-    project: 'smartcredit',
+    project: 'default',
     status: 'not-started',
     priority: 'medium',
     startDate: '',
@@ -58,9 +55,9 @@ export function saveProjects(projects) {
 export function loadTasks() {
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
-    return stored ? JSON.parse(stored) : SAMPLE_TASKS
+    return stored ? JSON.parse(stored) : []
   } catch {
-    return SAMPLE_TASKS
+    return []
   }
 }
 

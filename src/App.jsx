@@ -147,7 +147,7 @@ export default function App() {
   }
 
   function addTask(status = 'not-started') {
-    const project = activeProject === 'all' ? 'smartcredit' : activeProject
+    const project = activeProject === 'all' ? projects[0]?.id ?? 'default' : activeProject
     const task = createTask({ status, project })
     setTasks(prev => [...prev, task])
     setSelectedTaskId(task.id)
